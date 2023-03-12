@@ -43,7 +43,7 @@ my_data_row = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_row)
 
-my_snowflake_fruit = streamlit.dataframe(my_data_row)
+my_snowflake_fruit = pandas.df(my_data_row)
 add_my_fruit = streamlit.multiselect("What fruit would you like to add?", list(my_snowflake_fruit.index))
-fruit_chosen = my_data_row.loc[add_my_fruit]
+fruit_chosen = my_snowflake_fruit.loc[add_my_fruit]
 streamlit.text("Thanks for adding ", fruit_chosen)
